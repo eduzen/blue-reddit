@@ -1,0 +1,7 @@
+language: python
+python:
+  - "3.6.2"
+before_script: cd bproject
+install: "pip install -r requirements_dev.txt"
+script: pytest --cov=.
+after_script: codecov
