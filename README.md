@@ -73,9 +73,9 @@ PASSWORD = 'anypass'
 ## Usage:
 
 You can read documentation in `localhost:8000/docs` (also you can interact with the API):
-![Image](http://github.com/eduzen/blue-reddit/docs/docs.png)
+![Image](http://github.com/eduzen/blue-reddit/docs/docs.png?raw=true)
 
 and it also you can use the browsable API thanks to `django-rest-framework`:
-![Image](http://github.com/eduzen/blue-reddit/docs/rest.png)
+![Image](http://github.com/eduzen/blue-reddit/docs/rest.png?raw=true)
 
 
