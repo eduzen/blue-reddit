@@ -17,3 +17,9 @@ uritemplate==3.0.0
 django-extensions==1.9.9
 django-filter==1.1.0
 djangorestframework==3.7.7
+amqp==2.2.2
+billiard==3.5.0.3
+celery==4.1.0
+kombu==4.1.0
+vine==1.1.4
+redis==2.10.6

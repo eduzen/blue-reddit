@@ -12,3 +12,6 @@ class Submission(models.Model):
 
     def __str__(self):
         return f'{self.title} by {self.submitter}'
+
+    class Meta:
+        ordering = ('creation_date',)
