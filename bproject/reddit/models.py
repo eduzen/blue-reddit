@@ -31,4 +31,4 @@ class Submission(models.Model):
         return super(Submission, self).save(*args, **kwargs)
 
     class Meta:
-        ordering = ('creation_date',)
+        ordering = ('creation_date', 'punctuation', 'number_of_comments')

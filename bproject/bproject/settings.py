@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'rest_framework',
+    'django_filters',
     'reddit',
 ]
 
@@ -133,9 +134,22 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = TIME_ZONE
 
-# Praw settings
-CLIENT_ID = "foo"
-CLIENT_SECRET = "bar"
+
+# PRAW CONFIG
+
+CLIENT_ID = "fruta"
+CLIENT_SECRET = "foo"
 USER_AGENT = "my user agent"
-USERNAME = 'foo'
-PASSWORD = 'bar'
+USERNAME = 'bar'
+PASSWORD = 'anypass'
+
+
+# DJANGO-REST-FRAMEWORK CONFIG
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    )
+}
