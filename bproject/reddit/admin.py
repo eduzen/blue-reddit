@@ -9,11 +9,11 @@ class SubmissionAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'title',
-        'external_url',
-        'discussion_url',
         'submitter',
         'punctuation',
         'creation_date',
         'number_of_comments',
+        'discussion_url',
+        'external_url',
     )
-    list_filter = ('creation_date',)
+    list_filter = ('creation_date', 'submitter')

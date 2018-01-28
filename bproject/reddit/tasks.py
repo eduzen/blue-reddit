@@ -24,13 +24,13 @@ def _update_or_create_submission(submission_data):
     obj, created = Submission.objects.update_or_create(
         title=submission_data.title,
         submitter=submission_data.author,
-        discussion_url=submission_data.permalink,
-        external_url=submission_data.url,
         creation_date=datetime.fromtimestamp(
             submission_data.created_utc, tz=pytz.UTC),
         defaults={
             'punctuation': submission_data.score,
             'number_of_comments': len(submission_data.comments),
+            'discussion_url': submission_data.permalink,
+            'external_url': submission_data.url,
         },
     )
     if created:
