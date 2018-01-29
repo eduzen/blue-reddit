@@ -46,6 +46,9 @@ def submissions_15():
 
 @pytest.mark.django_db
 def test_get_submission(rf, submissions):
+    """
+        It tests 200 ok for the SubmissionModelViewset
+    """
     request = rf.get('/submission/')
     submission_view = SubmissionViewSet.as_view({'get': 'list'})
     response = submission_view(request)
@@ -65,6 +68,9 @@ def test_get_submission(rf, submissions):
 
 @pytest.mark.django_db
 def test_get_submission_paginated(rf, submissions_15):
+    """
+        It tests the number of results. Top 10 per page
+    """
     request = rf.get('/submission/')
     submission_view = SubmissionViewSet.as_view({'get': 'list'})
     response = submission_view(request)

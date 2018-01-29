@@ -4,6 +4,9 @@ from django.db import models
 
 
 class Submission(models.Model):
+    """
+        This class saves a submission from reddit.com
+    """
     title = models.CharField(max_length=200)
     external_url = models.URLField(max_length=200, null=True, blank=True)
     discussion_url = models.URLField(max_length=200)
@@ -17,6 +20,10 @@ class Submission(models.Model):
 
     @property
     def outside_link(self):
+        """
+            Here we check if the external_url provided by praw lib
+            is from reddit or outside
+        """
         url = urlparse(self.external_url)
         if 'reddit.com' not in url.netloc and 'redd.it' not in url.netloc:
             return True
@@ -24,6 +31,10 @@ class Submission(models.Model):
         return False
 
     def save(self, *args, **kwargs):
+        """
+            If the external_url is not from reddit we clear it
+            And we complete the partial url from reddit discuss.
+        """
         if not self.outside_link:
             self.external_url = None
 

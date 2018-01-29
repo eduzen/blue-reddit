@@ -80,6 +80,10 @@ class CollectSubmissionsView(APIView):
     """
         This view helps you to collect automatically submission from Reddit
         and it avoids to create submissions already existing.
+        For instance: collection-submission?limit=10
+
+        QueryParams:
+            limit (int): the amount of submission that you want to save
     """
     json_response = {
         "message": "We will start to gather new submissions. Task created!"
