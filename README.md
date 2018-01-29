@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/eduzen/blue-reddit.svg?branch=master)](https://travis-ci.org/eduzen/blue-reddit)
+[![Build Status](https://travis-ci.org/eduzen/blue-reddit.svg?branch=master)](https://travis-ci.org/eduzen/blue-reddit) [![codecov](https://codecov.io/gh/eduzen/blue-reddit/branch/master/graph/badge.svg)](https://codecov.io/gh/eduzen/blue-reddit)
 # blue-reddit
 
 Hello! Welcome to this news crawler from Reddit. In order to use this project you will need [Python](http://python.org)

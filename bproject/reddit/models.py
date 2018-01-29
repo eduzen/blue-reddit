@@ -18,7 +18,7 @@ class Submission(models.Model):
     @property
     def outside_link(self):
         url = urlparse(self.external_url)
-        if 'reddit.com' not in url.netloc or 'redd.it' not in url.netloc:
+        if 'reddit.com' not in url.netloc and 'redd.it' not in url.netloc:
             return True
 
         return False
