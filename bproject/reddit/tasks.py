@@ -38,6 +38,8 @@ def _update_or_create_submission(submission_data):
     else:
         logger.info(f'Updated submission, created! Id: {obj.id}')
 
+    return created
+
 
 def _create_submission(submission_data):
     """
@@ -88,11 +90,11 @@ def collect_submissions(limit=15):
             limit (int): a number of submissions
     """
     try:
-        reddit = _reddit_connection()
+        reddit_connection = _reddit_connection()
     except Exception:
         logger.Exception()
 
-    for submission in reddit.subreddit('python').new(limit=limit):
+    for submission in reddit_connection.subreddit('python').new(limit=limit):
         try:
             _update_or_create_submission(submission)
         except Exception:
