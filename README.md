@@ -19,12 +19,12 @@ Web browsable API, a lot of documentation, serializations and it fits the philos
 But if you need to crawl a big site like Reddit.com you can't do it with the times of the web.
 You have to wait too much to try to get what you want. So, you need to do it with concurrency or parallelism.
 And not only that, you need to do it well, because it can be a stressful task for your machine.
-That's why I've chosen `Celery` and `Redis`. Also I decided to use `Redis`, because it allows you to use 
+That's why I've chosen `Celery` and `Redis`. Also I decided to use `Redis`, because it allows you to use
 it as a `cache`.
 
 On the other hand, I decided to use the `update_or_create` function in the task that process reddit's submissions.
 Django method tries to fetch an object from database and if a match is found, it updates the fields passed,
-if not, it creates a new one. So, It would be one query to fetch and another one to update or create. 
+if not, it creates a new one. So, It would be one query to fetch and another one to update or create.
 It's also possible to use `bulk_create` in order to first gather all submissions and then one query to
 create all new ones and other for the updates. It will be more efficent for the database (there is also necessary
 to set a limit for memory reasons) but it could be problematic if same task is running twice.
@@ -84,3 +84,21 @@ You can read documentation in `localhost:8000/docs` (also you can interact with 
 
 and it also you can use the browsable API thanks to `django-rest-framework`:
 ![Image](docs/rest.png?raw=true)
+
+### Some useful commands with http:
+
+To get list of submissions:
+`http http://127.0.0.1:8000/submission/`
+
+To get list of submissions with internal url:
+`http http://localhost:8000/submission/internal`
+
+To get list of submissions with external url:
+`http http://localhost:8000/submission/internal`
+
+To get list of submissions 5 per page, page 2 and punctuation equal to 1:
+`http http://127.0.0.1:8000/submission/?page=2&page_size=5&punctuation=1`
+
+Start task to collect submission from reddit (limit 20):
+`http post http://127.0.0.1:8000/collect-submissions\?limit\=20`
+
