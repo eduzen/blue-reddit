@@ -9,7 +9,7 @@ requests==2.20.0
 six==1.11.0
 typing==3.6.4
 update-checker==0.16
-urllib3==1.24.2
+urllib3==1.26.5
 coreapi==2.3.3
 coreschema==0.0.4
 itypes==1.1.0
